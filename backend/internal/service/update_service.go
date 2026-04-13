@@ -27,6 +27,9 @@ const (
 	allowedDownloadHost = "github.com"
 	allowedAssetHost    = "objects.githubusercontent.com"
 
+	// GitHub repository for update checks
+	githubRepo = "sub2api"
+
 	// Security: max download size (500MB)
 	maxDownloadSize = 500 * 1024 * 1024
 )
