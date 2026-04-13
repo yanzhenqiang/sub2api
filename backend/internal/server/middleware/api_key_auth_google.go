@@ -4,9 +4,9 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/googleapi"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"sub2api/internal/config"
+	"sub2api/internal/pkg/googleapi"
+	"sub2api/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

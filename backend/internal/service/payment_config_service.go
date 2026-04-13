@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/paymentproviderinstance"
-	"github.com/Wei-Shaw/sub2api/internal/payment"
+	dbent "sub2api/ent"
+	"sub2api/ent/paymentproviderinstance"
+	"sub2api/internal/payment"
 )
 
 const (

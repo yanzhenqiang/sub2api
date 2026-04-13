@@ -13,11 +13,11 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/oauth"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/response"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"sub2api/internal/config"
+	infraerrors "sub2api/internal/pkg/errors"
+	"sub2api/internal/pkg/oauth"
+	"sub2api/internal/pkg/response"
+	"sub2api/internal/service"
 
 	"github.com/gin-gonic/gin"
 	"github.com/imroc/req/v3"

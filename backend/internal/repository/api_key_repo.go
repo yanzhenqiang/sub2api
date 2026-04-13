@@ -7,14 +7,14 @@ import (
 	"strings"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/apikey"
-	"github.com/Wei-Shaw/sub2api/ent/group"
-	"github.com/Wei-Shaw/sub2api/ent/schema/mixins"
-	"github.com/Wei-Shaw/sub2api/ent/user"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	dbent "sub2api/ent"
+	"sub2api/ent/apikey"
+	"sub2api/ent/group"
+	"sub2api/ent/schema/mixins"
+	"sub2api/ent/user"
+	"sub2api/internal/service"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
+	"sub2api/internal/pkg/pagination"
 
 	entsql "entgo.io/ent/dialect/sql"
 )

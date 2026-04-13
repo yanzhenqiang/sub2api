@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/group"
-	"github.com/Wei-Shaw/sub2api/ent/subscriptionplan"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
+	dbent "sub2api/ent"
+	"sub2api/ent/group"
+	"sub2api/ent/subscriptionplan"
+	infraerrors "sub2api/internal/pkg/errors"
 )
 
 // --- Plan CRUD ---

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log/slog"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/internal/config"
+	dbent "sub2api/ent"
+	"sub2api/internal/config"
 	"github.com/google/wire"
 )
 

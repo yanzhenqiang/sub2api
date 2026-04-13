@@ -4,12 +4,12 @@ import (
 	"log/slog"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	"github.com/Wei-Shaw/sub2api/internal/handler/dto"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/ip"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/response"
-	middleware2 "github.com/Wei-Shaw/sub2api/internal/server/middleware"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"sub2api/internal/config"
+	"sub2api/internal/handler/dto"
+	"sub2api/internal/pkg/ip"
+	"sub2api/internal/pkg/response"
+	middleware2 "sub2api/internal/server/middleware"
+	"sub2api/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

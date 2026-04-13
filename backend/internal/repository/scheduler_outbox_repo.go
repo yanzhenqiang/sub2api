@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"sub2api/internal/service"
 )
 
 type schedulerOutboxRepository struct {

@@ -12,10 +12,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/config"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
+	"sub2api/internal/config"
+	infraerrors "sub2api/internal/pkg/errors"
+	"sub2api/internal/pkg/logger"
+	"sub2api/internal/pkg/pagination"
 )
 
 const (

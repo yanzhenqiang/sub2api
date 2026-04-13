@@ -9,11 +9,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/logger"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/oauth"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyurl"
-	"github.com/Wei-Shaw/sub2api/internal/service"
-	"github.com/Wei-Shaw/sub2api/internal/util/logredact"
+	"sub2api/internal/pkg/logger"
+	"sub2api/internal/pkg/oauth"
+	"sub2api/internal/pkg/proxyurl"
+	"sub2api/internal/service"
+	"sub2api/internal/util/logredact"
 
 	"github.com/imroc/req/v3"
 )

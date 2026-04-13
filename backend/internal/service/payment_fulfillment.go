@@ -9,11 +9,11 @@ import (
 	"strings"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/paymentauditlog"
-	"github.com/Wei-Shaw/sub2api/ent/paymentorder"
-	"github.com/Wei-Shaw/sub2api/internal/payment"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
+	dbent "sub2api/ent"
+	"sub2api/ent/paymentauditlog"
+	"sub2api/ent/paymentorder"
+	"sub2api/internal/payment"
+	infraerrors "sub2api/internal/pkg/errors"
 )
 
 // --- Payment Notification & Fulfillment ---

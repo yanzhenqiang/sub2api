@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/Wei-Shaw/sub2api/internal/payment"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"sub2api/internal/payment"
+	"sub2api/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

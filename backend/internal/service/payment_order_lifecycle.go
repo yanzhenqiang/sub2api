@@ -7,12 +7,12 @@ import (
 	"strconv"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/paymentauditlog"
-	"github.com/Wei-Shaw/sub2api/ent/paymentorder"
-	"github.com/Wei-Shaw/sub2api/internal/payment"
-	"github.com/Wei-Shaw/sub2api/internal/payment/provider"
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
+	dbent "sub2api/ent"
+	"sub2api/ent/paymentauditlog"
+	"sub2api/ent/paymentorder"
+	"sub2api/internal/payment"
+	"sub2api/internal/payment/provider"
+	infraerrors "sub2api/internal/pkg/errors"
 )
 
 // --- Cancel & Expire ---

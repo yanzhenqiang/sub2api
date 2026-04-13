@@ -5,8 +5,8 @@ package repository
 import (
 	"testing"
 
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"sub2api/internal/pkg/pagination"
+	"sub2api/internal/service"
 )
 
 func (s *UserRepoSuite) TestListWithFilters_SortByEmailAsc() {

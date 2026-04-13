@@ -3,8 +3,8 @@
 package repository
 
 import (
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	"sub2api/internal/pkg/pagination"
+	"sub2api/internal/service"
 )
 
 func (s *RedeemCodeRepoSuite) TestListWithFilters_SortByValueAsc() {

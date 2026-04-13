@@ -9,14 +9,14 @@ import (
 	"strings"
 	"time"
 
-	dbent "github.com/Wei-Shaw/sub2api/ent"
-	"github.com/Wei-Shaw/sub2api/ent/apikey"
-	dbgroup "github.com/Wei-Shaw/sub2api/ent/group"
-	dbuser "github.com/Wei-Shaw/sub2api/ent/user"
-	"github.com/Wei-Shaw/sub2api/ent/userallowedgroup"
-	"github.com/Wei-Shaw/sub2api/ent/usersubscription"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	dbent "sub2api/ent"
+	"sub2api/ent/apikey"
+	dbgroup "sub2api/ent/group"
+	dbuser "sub2api/ent/user"
+	"sub2api/ent/userallowedgroup"
+	"sub2api/ent/usersubscription"
+	"sub2api/internal/pkg/pagination"
+	"sub2api/internal/service"
 
 	entsql "entgo.io/ent/dialect/sql"
 )

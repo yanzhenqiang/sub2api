@@ -1,7 +1,4 @@
 #!/bin/bash
-#
-# Usage: curl -sSL https://raw.githubusercontent.com/Wei-Shaw/sub2api/main/deploy/install.sh | bash
-#
 
 set -e
 
@@ -14,7 +11,6 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration
-GITHUB_REPO="Wei-Shaw/sub2api"
 INSTALL_DIR="/opt/sub2api"
 SERVICE_NAME="sub2api"
 SERVICE_USER="sub2api"
@@ -296,44 +292,6 @@ check_dependencies() {
 }
 
 
-# Validate if a version exists
-validate_version() {
-    local version="$1"
-
-    # Check for empty version
-    if [ -z "$version" ]; then
-        print_error "$(msg 'opt_version')" >&2
-        exit 1
-    fi
-
-    # Ensure version starts with 'v'
-    if [[ ! "$version" =~ ^v ]]; then
-        version="v$version"
-    fi
-
-    print_info "$(msg 'validating_version') $version" >&2
-
-    # Check if the release exists
-    local http_code
-    http_code=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 "https://api.github.com/repos/${GITHUB_REPO}/releases/tags/${version}" 2>/dev/null)
-
-    # Check for network errors (empty or non-numeric response)
-    if [ -z "$http_code" ] || ! [[ "$http_code" =~ ^[0-9]+$ ]]; then
-        print_error "Network error: Failed to connect to GitHub API" >&2
-        exit 1
-    fi
-
-    if [ "$http_code" != "200" ]; then
-        print_error "$(msg 'version_not_found'): $version" >&2
-        echo "" >&2
-        list_versions >&2
-        exit 1
-    fi
-
-    # Return the normalized version (to stdout)
-    echo "$version"
-}
-
 # Get current installed version
 get_current_version() {
     if [ -f "$INSTALL_DIR/sub2api" ]; then
@@ -344,60 +302,6 @@ get_current_version() {
     fi
 }
 
-# Download and extract
-download_and_extract() {
-    local version_num=${LATEST_VERSION#v}
-    local archive_name="sub2api_${version_num}_${OS}_${ARCH}.tar.gz"
-    local download_url="https://github.com/${GITHUB_REPO}/releases/download/${LATEST_VERSION}/${archive_name}"
-    local checksum_url="https://github.com/${GITHUB_REPO}/releases/download/${LATEST_VERSION}/checksums.txt"
-
-    print_info "$(msg 'downloading') ${archive_name}..."
-
-    # Create temp directory
-    TEMP_DIR=$(mktemp -d)
-    trap "rm -rf $TEMP_DIR" EXIT
-
-    # Download archive
-    if ! curl -sL "$download_url" -o "$TEMP_DIR/$archive_name"; then
-        print_error "$(msg 'download_failed')"
-        exit 1
-    fi
-
-    # Download and verify checksum
-    print_info "$(msg 'verifying_checksum')"
-    if curl -sL "$checksum_url" -o "$TEMP_DIR/checksums.txt" 2>/dev/null; then
-        local expected_checksum=$(grep "$archive_name" "$TEMP_DIR/checksums.txt" | awk '{print $1}')
-        local actual_checksum=$(sha256sum "$TEMP_DIR/$archive_name" | awk '{print $1}')
-
-        if [ "$expected_checksum" != "$actual_checksum" ]; then
-            print_error "$(msg 'checksum_failed')"
-            print_error "Expected: $expected_checksum"
-            print_error "Actual: $actual_checksum"
-            exit 1
-        fi
-        print_success "$(msg 'checksum_verified')"
-    else
-        print_warning "$(msg 'checksum_not_found')"
-    fi
-
-    # Extract
-    print_info "$(msg 'extracting')"
-    tar -xzf "$TEMP_DIR/$archive_name" -C "$TEMP_DIR"
-
-    # Create install directory
-    mkdir -p "$INSTALL_DIR"
-
-    # Copy binary
-    cp "$TEMP_DIR/sub2api" "$INSTALL_DIR/sub2api"
-    chmod +x "$INSTALL_DIR/sub2api"
-
-    # Copy deploy files if they exist in the archive
-    if [ -d "$TEMP_DIR/deploy" ]; then
-        cp -r "$TEMP_DIR/deploy/"* "$INSTALL_DIR/" 2>/dev/null || true
-    fi
-
-    print_success "$(msg 'binary_installed') $INSTALL_DIR/sub2api"
-}
 
 # Create system user
 create_user() {
@@ -449,7 +353,6 @@ install_service() {
     cat > /etc/systemd/system/sub2api.service << EOF
 [Unit]
 Description=Sub2API - AI API Gateway Platform
-Documentation=https://github.com/Wei-Shaw/sub2api
 After=network.target postgresql.service redis.service
 Wants=postgresql.service redis.service
 
@@ -606,9 +509,6 @@ upgrade() {
     # Backup current binary
     cp "$INSTALL_DIR/sub2api" "$INSTALL_DIR/sub2api.backup"
     print_info "$(msg 'backup_created'): $INSTALL_DIR/sub2api.backup"
-
-    # Download and install new version
-    download_and_extract
 
     # Set permissions
     chown "$SERVICE_USER:$SERVICE_USER" "$INSTALL_DIR/sub2api"

@@ -4,10 +4,10 @@ import (
 	"strconv"
 	"strings"
 
-	infraerrors "github.com/Wei-Shaw/sub2api/internal/pkg/errors"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/pagination"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/response"
-	"github.com/Wei-Shaw/sub2api/internal/service"
+	infraerrors "sub2api/internal/pkg/errors"
+	"sub2api/internal/pkg/pagination"
+	"sub2api/internal/pkg/response"
+	"sub2api/internal/service"
 
 	"github.com/gin-gonic/gin"
 )
